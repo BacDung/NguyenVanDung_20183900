@@ -2,6 +2,7 @@ package controller;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
@@ -81,9 +82,10 @@ public class PlaceOrderController extends BaseController{
     public void validateDeliveryInfo(HashMap<String, String> info) throws InterruptedException, IOException{
     	
     }
-    
+    //Nguyễn Văn Dũng - 20183900
     public boolean validatePhoneNumber(String phoneNumber) {
     	if(phoneNumber.length() != 10) return false;
+    	if(!phoneNumber.startsWith("0")) return false;
     	try {
     		Integer.parseInt(phoneNumber);
     	} catch (NumberFormatException e) {
@@ -92,14 +94,22 @@ public class PlaceOrderController extends BaseController{
     	return true;
     }
     
+    //Nguyễn Văn Dũng - 20183900
     public boolean validateName(String name) {
-    	// TODO: your work
-    	return false;
+    	if(name == null) return false;
+    	char arr[] = name.toCharArray();
+ 
+    	
+    	if(arr[0] < 64 || arr[0] > 90) return false;
+    	return true;
     }
     
     public boolean validateAddress(String address) {
-    	// TODO: your work
-    	return false;
+    	if(address == null) return false;
+    	char arr[] = address.toCharArray();
+    	if(arr[0] > 122 || (arr[0] < 97 && arr[0] > 90) || (arr[0] < 65 && arr[0] > 57) || (arr[0] < 48 && arr[0] > 32))
+    		return false;
+    	return true;
     }
     
 
