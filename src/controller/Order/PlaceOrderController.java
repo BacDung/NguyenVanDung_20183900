@@ -1,4 +1,4 @@
-package controller;
+package controller.Order;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -11,6 +11,7 @@ import java.util.logging.Logger;
 import entity.cart.Cart;
 import entity.cart.CartMedia;
 import common.exception.InvalidDeliveryInfoException;
+import controller.BaseController;
 import entity.invoice.Invoice;
 import entity.order.Order;
 import entity.order.OrderMedia;
@@ -21,6 +22,8 @@ import views.screen.popup.PopupScreen;
  * @author nguyenlm
  */
 public class PlaceOrderController extends BaseController{
+	
+	public CalculateShippingFee fee1 = new ShippingFee1();
 
     /**
      * Just for logging purpose
@@ -98,8 +101,6 @@ public class PlaceOrderController extends BaseController{
     public boolean validateName(String name) {
     	if(name == null) return false;
     	char arr[] = name.toCharArray();
- 
-    	
     	if(arr[0] < 64 || arr[0] > 90) return false;
     	return true;
     }
@@ -118,10 +119,10 @@ public class PlaceOrderController extends BaseController{
      * @param order
      * @return shippingFee
      */
+   
     public int calculateShippingFee(Order order){
-        Random rand = new Random();
-        int fees = (int)( ( (rand.nextFloat()*10)/100 ) * order.getAmount() );
-        LOGGER.info("Order Amount: " + order.getAmount() + " -- Shipping Fees: " + fees);
-        return fees;
+        return fee1.calculateShippingFee(order);
     }
+    
+    
 }

@@ -11,7 +11,15 @@ public class Order {
     private int shippingFees;
     private List lstOrderMedia;
     private HashMap<String, String> deliveryInfo;
-
+    
+    public int getQuantity() {
+    	return lstOrderMedia.size();
+    }
+    
+    public int getWeight() {
+    	return 1;
+    }
+    
     public Order(){
         this.lstOrderMedia = new ArrayList<>();
     }

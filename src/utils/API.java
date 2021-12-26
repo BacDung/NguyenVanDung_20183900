@@ -92,11 +92,12 @@ public class API {
 	 * @return return: phan hoi tu server (dang String)
 	 * @throws IOException
 	 */
-	public static String post(String url, String data, String token) throws IOException {
+	public static String post(String url, String data) throws IOException {
 		//phan 1: setup
 		allowMethods("PATCH");
 		URL line_api_url = new URL(url);
 		String payload = data;
+		String token = "";
 		LOGGER.info("Request Info:\nRequest URL: " + url + "\n" + "Payload Data: " + payload + "\n");
 		HttpURLConnection conn = setUpConnection(token, line_api_url, "POST");
 //		conn.setRequestProperty("Authorization", "Bearer " + token);

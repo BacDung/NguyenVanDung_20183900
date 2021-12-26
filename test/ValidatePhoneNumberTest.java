@@ -4,7 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-import controller.PlaceOrderController;
+import controller.Order.PlaceOrderController;
 
 class ValidatePhoneNumberTest {
 	private PlaceOrderController placceController;

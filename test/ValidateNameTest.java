@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-import controller.PlaceOrderController;
+import controller.Order.PlaceOrderController;
 
 class ValidateNameTest {
 	private PlaceOrderController placceController;

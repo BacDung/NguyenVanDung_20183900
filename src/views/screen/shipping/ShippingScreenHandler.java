@@ -6,8 +6,8 @@ import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.ResourceBundle;
 
-import controller.PlaceOrderController;
 import common.exception.InvalidDeliveryInfoException;
+import controller.Order.PlaceOrderController;
 import entity.invoice.Invoice;
 import entity.order.Order;
 import javafx.beans.property.BooleanProperty;
